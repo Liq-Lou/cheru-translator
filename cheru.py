@@ -56,11 +56,15 @@ def cheru2str(c: str) -> str:
 
 if __name__ == '__main__':
     while True:
-        content = input('input: ')
+        is_cheru = True
+        content = input('input: ').strip()
         for character in content:
             if character not in CHERU_SET:
-                output = str2cheru(content)
-            else:
-                output = cheru2str(content)
+                is_cheru = False
+                break
+        if is_cheru:
+            output = cheru2str(content)
+        else:
+            output = str2cheru(content)
         print("output: " + output)
         print()

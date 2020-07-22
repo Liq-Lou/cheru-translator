@@ -54,5 +54,13 @@ def cheru2str(c: str) -> str:
     return rex_cheru_word.sub(lambda w: cheru2word(w.group()), c)
 
 
-# print(str2cheru("转换为切噜语"))
-# print(cheru2str("切噜语翻译"))
+if __name__ == '__main__':
+    while True:
+        content = input('input: ')
+        for character in content:
+            if character not in CHERU_SET:
+                output = str2cheru(content)
+            else:
+                output = cheru2str(content)
+        print("output: " + output)
+        print()
